@@ -1,0 +1,28 @@
+[project]
+name = "magicshop"
+version = "0.1.0"
+description = "Django store with customer dashboard (neutral magic theme)"
+readme = "README.md"
+requires-python = ">=3.10"
+
+[project.dependencies]
+Django = ">=5.0,<6.0"
+django-allauth = ">=0.63"
+django-environ = ">=0.11"
+djangorestframework = ">=3.15"
+Pillow = ">=10.0"
+psycopg[binary] = ">=3.1"
+redis = ">=5.0"
+celery = ">=5.4"
+requests = ">=2.32"
+python-slugify = ">=8.0"
+
+[tool.black]
+line-length = 100
+
+[tool.isort]
+profile = "black"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"

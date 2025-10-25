@@ -1,8 +1,0 @@
-select
-count(distinct student_id) as "количество лучших студентов"
-from
-(select	student_id,a.time,count(correct) as cnt from
-(Select	student_id,	timetest, correct, tsrange(timetest , timetest+interval'1hour','[]') as time
-from students where correct=True and extract (month from timetest) = 4 and extract (year from timetest) = 2021 ) a
- where timetest between lower(a.time) and upper(a.time) group by student_id, a.time order by cnt desc) b
-group by student_id having sum(b.cnt) > 30
